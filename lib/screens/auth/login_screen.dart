@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 260,
                 width: double.infinity,
                 child: Image.network(
-                  'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=60',
+                  'https://tse2.mm.bing.net/th/id/OIP.BTMA06humZZrLVQ6IYMnGAHaE7?pid=Api&P=0&h=180',
                   fit: BoxFit.cover,
                   errorBuilder: (_, __, ___) => Container(
                     color: AppColors.primary.withValues(alpha: 0.15),
