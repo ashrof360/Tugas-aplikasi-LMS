@@ -7,6 +7,7 @@ class Course {
     required this.progress,
     required this.coverLabel,
     this.startDate,
+    this.imageUrl,
   });
 
   final String code;
@@ -16,4 +17,5 @@ class Course {
   final double progress; // 0..1
   final String coverLabel;
   final String? startDate;
+  final String? imageUrl;
 }

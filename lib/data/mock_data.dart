@@ -29,6 +29,7 @@ class MockData {
       progress: 0.89,
       coverLabel: 'UI/UX',
       startDate: 'Monday, 8 February 2021',
+      imageUrl: 'assets/images/ui_ux_book.jpg',
     ),
     Course(
       term: '2021/2',

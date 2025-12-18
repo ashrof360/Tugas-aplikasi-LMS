@@ -24,7 +24,7 @@ class CourseProgressTile extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _Cover(label: course.coverLabel),
+              _Cover(label: course.coverLabel, imageUrl: course.imageUrl),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(
@@ -81,9 +81,10 @@ class CourseProgressTile extends StatelessWidget {
 }
 
 class _Cover extends StatelessWidget {
-  const _Cover({required this.label});
+  const _Cover({required this.label, this.imageUrl});
 
   final String label;
+  final String? imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -92,16 +93,20 @@ class _Cover extends StatelessWidget {
       height: 74,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14),
-        gradient: LinearGradient(
+        gradient: imageUrl == null ? LinearGradient(
           colors: [
             AppColors.primary.withValues(alpha: 0.22),
             AppColors.primary.withValues(alpha: 0.06),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-        ),
+        ) : null,
+        image: imageUrl != null ? DecorationImage(
+          image: AssetImage(imageUrl!),
+          fit: BoxFit.cover,
+        ) : null,
       ),
-      child: Center(
+      child: imageUrl == null ? Center(
         child: Text(
           label,
           style: const TextStyle(
@@ -109,7 +114,7 @@ class _Cover extends StatelessWidget {
             color: AppColors.primaryDark,
           ),
         ),
-      ),
+      ) : null,
     );
   }
 }
