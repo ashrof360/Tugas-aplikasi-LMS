@@ -1,0 +1,235 @@
+import 'package:flutter/material.dart';
+import '../../theme/app_colors.dart';
+import '../../data/mock_data.dart';
+
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              clipBehavior: Clip.none,
+              alignment: Alignment.bottomCenter,
+              children: [
+                // Red Header Background
+                Container(
+                  height: 280,
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    color: AppColors.primary,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(30),
+                    ),
+                  ),
+                  child: SafeArea(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              IconButton(
+                                icon: const Icon(Icons.arrow_back, color: Colors.white),
+                                onPressed: () => Navigator.pop(context),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 10),
+                          // Profile Image
+                          Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(color: Colors.white, width: 2),
+                            ),
+                            child: const CircleAvatar(
+                              radius: 50,
+                              backgroundColor: Colors.grey,
+                               child: Icon(Icons.person, size: 50, color: Colors.white),
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          const Text(
+                            'DANDY CANDRA PRATAMA',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 60), // Space for floating card
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                // Floating Tab Card
+                Positioned(
+                  bottom: -30,
+                  child: Container(
+                    width: 300,
+                    padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          blurRadius: 10,
+                          offset: const Offset(0, 5),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        _buildTabItem(title: 'About Me', isActive: true),
+                        _buildTabItem(title: 'Kelas', isActive: false),
+                        _buildTabItem(title: 'Edit Profile', isActive: false),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 50),
+            // User Information Section
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Informasi User',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  _buildInfoItem(
+                    label: 'Email address',
+                    value: 'dandycandra@365.telkomuniversity.ac.id',
+                  ),
+                  const SizedBox(height: 16),
+                  _buildInfoItem(
+                    label: 'Program Studi',
+                    value: 'D4 Teknologi Rekayasa Multimedia',
+                  ),
+                  const SizedBox(height: 16),
+                  _buildInfoItem(
+                    label: 'Fakultas',
+                    value: 'FIT',
+                  ),
+                  const SizedBox(height: 32),
+                  const Text(
+                    'Aktivitas Login',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  _buildInfoItem(
+                    label: 'First access to site',
+                    value: 'Monday, 7 September 2020, 9:27 AM (288 days 12 hours)',
+                  ),
+                  const SizedBox(height: 16),
+                  _buildInfoItem(
+                    label: 'Last access to site',
+                    value: 'Tuesday, 22 June 2021, 9:44 PM (now)',
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 40),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+         height: 70,
+         decoration: const BoxDecoration(
+           color: AppColors.primary,
+           borderRadius: BorderRadius.only(
+             topLeft: Radius.circular(30),
+             topRight: Radius.circular(30),
+           )
+         ),
+         child: Row(
+           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+           children: [
+             _buildBottomNavItem(icon: Icons.home, label: 'Home', isActive: false),
+             _buildBottomNavItem(icon: Icons.school, label: 'Kelas Saya', isActive: false),
+             _buildBottomNavItem(icon: Icons.notifications, label: 'Notifikasi', isActive: false),
+           ],
+         ),
+      ),
+    );
+  }
+
+  Widget _buildTabItem({required String title, required bool isActive}) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
+            color: Colors.black,
+          ),
+        ),
+        if (isActive)
+          Container(
+            margin: const EdgeInsets.only(top: 4),
+            height: 2,
+            width: 20,
+            color: Colors.black,
+          ),
+      ],
+    );
+  }
+
+  Widget _buildInfoItem({required String label, required String value}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: const TextStyle(
+            fontSize: 12,
+            color: Colors.grey,
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          value,
+          style: const TextStyle(
+            fontSize: 14,
+            color: Colors.black, 
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildBottomNavItem({required IconData icon, required String label, required bool isActive}) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(icon, color: Colors.white),
+        Text(
+           label,
+           style: const TextStyle(color: Colors.white, fontSize: 10)
+        )
+      ],
+    );
+  }
+}

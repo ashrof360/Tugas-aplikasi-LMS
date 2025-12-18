@@ -6,6 +6,7 @@ import '../../widgets/announcement_banner.dart';
 import '../../widgets/course_progress_tile.dart';
 import '../../widgets/section_header.dart';
 import '../../widgets/upcoming_assignment_card.dart';
+import '../profile/profile_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -81,39 +82,46 @@ class _Header extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-            decoration: BoxDecoration(
-              color: AppColors.primaryDark,
-              borderRadius: BorderRadius.circular(22),
-            ),
-            child: Row(
-              children: [
-                Text(
-                  MockData.userRole,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 12,
-                  ),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const ProfileScreen()),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                decoration: BoxDecoration(
+                  color: AppColors.primaryDark,
+                  borderRadius: BorderRadius.circular(22),
                 ),
-                const SizedBox(width: 10),
-                Container(
-                  width: 26,
-                  height: 26,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white,
-                  ),
-                  child: const Icon(
-                    Icons.person,
-                    size: 16,
-                    color: AppColors.primaryDark,
-                  ),
+                child: Row(
+                  children: [
+                    Text(
+                      MockData.userRole,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 12,
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Container(
+                      width: 26,
+                      height: 26,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      child: const Icon(
+                        Icons.person,
+                        size: 16,
+                        color: AppColors.primaryDark,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
         ],
       ),
     );
