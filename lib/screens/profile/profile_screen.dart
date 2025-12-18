@@ -109,6 +109,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             // Dynamic Content Section
             if (_selectedTab == 'About Me') _buildAboutMeSection(),
             if (_selectedTab == 'Kelas') _buildClassesSection(),
+            if (_selectedTab == 'Edit Profile') _buildEditProfileSection(),
             const SizedBox(height: 40),
           ],
         ),
@@ -223,6 +224,55 @@ class _ProfileScreenState extends State<ProfileScreen> {
       child: Column(
         children: MockData.courses.map((course) => _buildClassItem(course)).toList(),
       ),
+    );
+  }
+
+  Widget _buildEditProfileSection() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Column(
+        children: [
+          _buildTextField(label: 'Nama Pertama'),
+          const SizedBox(height: 16),
+          _buildTextField(label: 'Nama Terakhir'),
+          const SizedBox(height: 16),
+          _buildTextField(label: 'E-mail Address'),
+          const SizedBox(height: 16),
+          _buildTextField(label: 'Negara'),
+          const SizedBox(height: 16),
+           _buildTextField(label: 'Deskripsi'),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTextField({required String label}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: const TextStyle(
+            fontSize: 10,
+            color: Colors.black, 
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        const SizedBox(height: 8),
+        TextField(
+          decoration: InputDecoration(
+            contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 12),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(color: Colors.grey),
+            ),
+             enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(color: Color(0xFFE0E0E0)),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
