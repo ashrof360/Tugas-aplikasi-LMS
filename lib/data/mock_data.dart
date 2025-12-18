@@ -28,6 +28,7 @@ class MockData {
       section: '[ADY]',
       progress: 0.89,
       coverLabel: 'UI/UX',
+      startDate: 'Monday, 8 February 2021',
     ),
     Course(
       term: '2021/2',
@@ -36,6 +37,7 @@ class MockData {
       section: '[BBO]. JUMAT 2',
       progress: 0.86,
       coverLabel: 'CIV',
+      startDate: 'Monday, 8 February 2021',
     ),
     Course(
       term: '2021/2',
@@ -44,6 +46,7 @@ class MockData {
       section: '[DDS]',
       progress: 0.90,
       coverLabel: 'OS',
+      startDate: 'Monday, 8 February 2021',
     ),
     Course(
       term: '2021/2',
@@ -52,6 +55,7 @@ class MockData {
       section: '[APJ]',
       progress: 0.90,
       coverLabel: 'MOB',
+      startDate: 'Monday, 8 February 2021',
     ),
     Course(
       term: '2021/2',
@@ -60,6 +64,7 @@ class MockData {
       section: '[ARS]',
       progress: 0.90,
       coverLabel: 'ENG',
+      startDate: 'Monday, 8 February 2021',
     ),
     Course(
       term: '2021/2',
@@ -68,6 +73,7 @@ class MockData {
       section: '[TPR]',
       progress: 0.90,
       coverLabel: 'PMI',
+      startDate: 'Monday, 8 February 2021',
     ),
     Course(
       term: '2021/2',
@@ -76,6 +82,7 @@ class MockData {
       section: '[EYR]',
       progress: 0.90,
       coverLabel: 'OR',
+      startDate: 'Monday, 8 February 2021',
     ),
   ];
 
