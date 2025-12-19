@@ -39,6 +39,7 @@ class MockData {
       progress: 0.86,
       coverLabel: 'CIV',
       startDate: 'Monday, 8 February 2021',
+      imageUrl: 'assets/images/130851053.jpg',
     ),
     Course(
       term: '2021/2',

@@ -26,7 +26,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               children: [
                 // Red Header Background
                 Container(
-                  height: 280,
+                  height: 310,
                   width: double.infinity,
                   decoration: const BoxDecoration(
                     color: AppColors.primary,
@@ -63,7 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           const SizedBox(height: 16),
                           const Text(
-                            'DANDY CANDRA PRATAMA',
+                            'MOCH ASHROFUL MALIK',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,
@@ -182,17 +182,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
           const SizedBox(height: 16),
           _buildInfoItem(
             label: 'Email address',
-            value: 'dandycandra@365.telkomuniversity.ac.id',
+            value: 'mochashroful@gmail.com',
           ),
           const SizedBox(height: 16),
           _buildInfoItem(
             label: 'Program Studi',
-            value: 'D4 Teknologi Rekayasa Multimedia',
+            value: 'S1 Teknik Informatika',
           ),
           const SizedBox(height: 16),
           _buildInfoItem(
             label: 'Fakultas',
-            value: 'FIT',
+            value: 'TEKNIK',
           ),
           const SizedBox(height: 32),
           const Text(
