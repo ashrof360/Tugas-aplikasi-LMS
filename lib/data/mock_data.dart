@@ -49,6 +49,7 @@ class MockData {
       progress: 0.90,
       coverLabel: 'OS',
       startDate: 'Monday, 8 February 2021',
+      imageUrl: 'assets/images/Sistem_Operasi.jpg',
     ),
     Course(
       term: '2021/2',
@@ -58,6 +59,7 @@ class MockData {
       progress: 0.90,
       coverLabel: 'MOB',
       startDate: 'Monday, 8 February 2021',
+      imageUrl: 'assets/images/01MBBG0520.jpg',
     ),
     Course(
       term: '2021/2',
@@ -67,6 +69,7 @@ class MockData {
       progress: 0.90,
       coverLabel: 'ENG',
       startDate: 'Monday, 8 February 2021',
+      imageUrl: 'assets/images/059a32f85ff25babb9a4cca641fcbb40.jpg',
     ),
     Course(
       term: '2021/2',
@@ -76,6 +79,7 @@ class MockData {
       progress: 0.90,
       coverLabel: 'PMI',
       startDate: 'Monday, 8 February 2021',
+      imageUrl: 'assets/images/pemrograman-web.1647501216.jpg',
     ),
     Course(
       term: '2021/2',
@@ -85,6 +89,7 @@ class MockData {
       progress: 0.90,
       coverLabel: 'OR',
       startDate: 'Monday, 8 February 2021',
+      imageUrl: 'assets/images/297098.67c50a84-cea7-44ec-b15a-57e362f5d659.IMG_202306.jpg',
     ),
   ];
 
