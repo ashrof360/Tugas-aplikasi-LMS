@@ -21,7 +21,9 @@ class MyClassesScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          ...MockData.courses.map(
+          ...(List.of(MockData.courses)
+            ..sort((a, b) => a.name.compareTo(b.name)))
+            .map(
             (c) => Padding(
               padding: const EdgeInsets.only(bottom: 12),
               child: Card(
@@ -30,7 +32,10 @@ class MyClassesScreen extends StatelessWidget {
                     horizontal: 14,
                     vertical: 10,
                   ),
-                  leading: _CourseIcon(label: c.coverLabel),
+                  leading: _CourseIcon(
+                    label: c.coverLabel,
+                    imageUrl: c.imageUrl,
+                  ),
                   title: Text(
                     c.name,
                     maxLines: 2,
@@ -57,9 +62,10 @@ class MyClassesScreen extends StatelessWidget {
 }
 
 class _CourseIcon extends StatelessWidget {
-  const _CourseIcon({required this.label});
+  const _CourseIcon({required this.label, this.imageUrl});
 
   final String label;
+  final String? imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -67,10 +73,14 @@ class _CourseIcon extends StatelessWidget {
       width: 52,
       height: 52,
       decoration: BoxDecoration(
-        color: AppColors.primary.withValues(alpha: 0.12),
+        color: imageUrl == null ? AppColors.primary.withValues(alpha: 0.12) : null,
         borderRadius: BorderRadius.circular(14),
+        image: imageUrl != null ? DecorationImage(
+          image: AssetImage(imageUrl!),
+          fit: BoxFit.cover,
+        ) : null,
       ),
-      child: Center(
+      child: imageUrl == null ? Center(
         child: Text(
           label,
           style: const TextStyle(
@@ -78,7 +88,7 @@ class _CourseIcon extends StatelessWidget {
             color: AppColors.primaryDark,
           ),
         ),
-      ),
+      ) : null,
     );
   }
 }
