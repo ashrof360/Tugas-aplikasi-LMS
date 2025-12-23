@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../data/mock_data.dart';
@@ -16,8 +17,57 @@ class _QuizScreenState extends State<QuizScreen> {
   int _currentQuestionIndex = 0;
   // Tracking selected option for each question: questionId -> optionIndex
   final Map<int, int> _answers = {};
+  Timer? _timer;
+  int _secondsRemaining = 10;
 
   List<QuizQuestion> get _questions => MockData.quizQuestions;
+
+  @override
+  void initState() {
+    super.initState();
+    _startTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  void _startTimer() {
+    _timer?.cancel();
+    _secondsRemaining = 10;
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (_secondsRemaining > 0) {
+        setState(() {
+          _secondsRemaining--;
+        });
+      } else {
+        _goToNextQuestion();
+      }
+    });
+  }
+
+  void _goToNextQuestion() {
+    if (_currentQuestionIndex < _questions.length - 1) {
+      setState(() {
+        _currentQuestionIndex++;
+        _startTimer();
+      });
+    } else {
+      _timer?.cancel();
+      // Quiz finished - logic can be added here (e.g., show score)
+      // For now, just exit as per plan
+      Navigator.of(context).pop();
+    }
+  }
+
+  void _onStepTapped(int index) {
+    setState(() {
+      _currentQuestionIndex = index;
+      _startTimer();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,9 +103,9 @@ class _QuizScreenState extends State<QuizScreen> {
                   children: [
                     const Icon(Icons.timer_outlined, color: Colors.white, size: 20),
                     const SizedBox(width: 4),
-                    const Text(
-                      '15 : 00',
-                      style: TextStyle(
+                    Text(
+                      '00 : ${(_secondsRemaining < 10) ? "0$_secondsRemaining" : _secondsRemaining}',
+                      style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
@@ -74,11 +124,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       final isAnswered = _answers.containsKey(q.id);
                       
                       return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _currentQuestionIndex = q.id - 1;
-                          });
-                        },
+                        onTap: () => _onStepTapped(q.id - 1),
                         child: Container(
                           margin: const EdgeInsets.symmetric(horizontal: 4),
                           width: 30,
