@@ -6,6 +6,7 @@ import '../../theme/app_colors.dart';
 import '../../widgets/download_tile.dart';
 import '../../widgets/forum_thread_tile.dart';
 import '../../widgets/schedule_tile.dart';
+import '../../widgets/course_work_tile.dart';
 
 class CourseDetailScreen extends StatelessWidget {
   const CourseDetailScreen({super.key, required this.course});
@@ -15,7 +16,7 @@ class CourseDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -28,8 +29,7 @@ class CourseDetailScreen extends StatelessWidget {
             indicatorColor: AppColors.primaryDark,
             tabs: [
               Tab(text: 'Materi'),
-              Tab(text: 'Kalender'),
-              Tab(text: 'Forum'),
+              Tab(text: 'Tugas Dan Kuis'),
             ],
           ),
         ),
@@ -77,66 +77,10 @@ class CourseDetailScreen extends StatelessWidget {
             ListView(
               padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
               children: [
-                Text(
-                  'Kalender Akademik (Jadwal Mingguan)',
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                ...MockData.courseSchedule.map(
-                  (s) => Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: ScheduleTile(item: s),
-                  ),
-                ),
-              ],
-            ),
-            ListView(
-              padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
-              children: [
-                Text(
-                  'Forum Diskusi',
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Row(
-                      children: [
-                        const Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Tulis pertanyaan / topik diskusi…',
-                              border: InputBorder.none,
-                            ),
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Posting (mock) dikirim.'),
-                              ),
-                            );
-                          },
-                          icon: const Icon(
-                            Icons.send,
-                            color: AppColors.primaryDark,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 10),
-                ...MockData.forumThreads.map(
-                  (t) => Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: ForumThreadTile(thread: t),
+                ...MockData.courseWorks.map(
+                  (w) => Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: CourseWorkTile(item: w),
                   ),
                 ),
               ],

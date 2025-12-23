@@ -4,6 +4,7 @@ import '../models/course.dart';
 import '../models/forum_thread.dart';
 import '../models/material_item.dart';
 import '../models/schedule_item.dart';
+import '../models/course_work.dart';
 
 class MockData {
   static const String userName = 'DANDY CANDRA PRATAMA';
@@ -18,6 +19,9 @@ class MockData {
   static const latestAnnouncement = Announcement(
     title: 'Maintenance Pra UAS Semester Genap 2020/2021',
     subtitle: 'Info Maintenance Server',
+    label: 'Maintenance LMS',
+    description:
+        'Akses LMS mungkin tidak stabil selama maintenance.\nMohon simpan pekerjaan Anda.',
   );
 
   static const courses = <Course>[
@@ -134,6 +138,26 @@ class MockData {
       author: 'Mahasiswa',
       lastMessage: 'Ada referensi UI kit yang bagus?',
       replies: 8,
+    ),
+  ];
+  static const courseWorks = <CourseWork>[
+    CourseWork(
+      title: 'Quiz Review 01',
+      deadline: 'Tenggat Waktu : 25 Februari 2021 23:59 WIB',
+      type: CourseWorkType.quiz,
+      status: CourseWorkStatus.completed,
+    ),
+    CourseWork(
+      title: 'Tugas 01 – UID Android Mobile Game',
+      deadline: 'Tenggat Waktu : 25 Februari 2021 23:59 WIB',
+      type: CourseWorkType.assignment,
+      status: CourseWorkStatus.check,
+    ),
+    CourseWork(
+      title: 'Kuis – Assessment 2',
+      deadline: 'Tenggat Waktu : 25 Februari 2021 23:59 WIB',
+      type: CourseWorkType.meeting,
+      status: CourseWorkStatus.completed,
     ),
   ];
 }

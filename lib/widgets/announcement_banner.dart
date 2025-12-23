@@ -54,7 +54,7 @@ class AnnouncementBanner extends StatelessWidget {
                         color: AppColors.primary.withValues(alpha: 0.25),
                       ),
                     ),
-                    const Positioned(
+                    Positioned(
                       left: 14,
                       top: 14,
                       child: Row(
@@ -62,8 +62,8 @@ class AnnouncementBanner extends StatelessWidget {
                           Icon(Icons.info, color: AppColors.primaryDark),
                           SizedBox(width: 8),
                           Text(
-                            'Maintenance LMS',
-                            style: TextStyle(fontWeight: FontWeight.w800),
+                            announcement.label,
+                            style: const TextStyle(fontWeight: FontWeight.w800),
                           ),
                         ],
                       ),
@@ -73,7 +73,7 @@ class AnnouncementBanner extends StatelessWidget {
                       top: 44,
                       right: 14,
                       child: Text(
-                        'Akses LMS mungkin tidak stabil selama maintenance.\nMohon simpan pekerjaan Anda.',
+                        announcement.description,
                         style: Theme.of(
                           context,
                         ).textTheme.bodySmall?.copyWith(color: AppColors.muted),
