@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/course_work.dart';
-import '../theme/app_colors.dart';
+import '../screens/course/quiz_screen.dart';
 
 class CourseWorkTile extends StatelessWidget {
   const CourseWorkTile({super.key, required this.item});
@@ -10,12 +10,22 @@ class CourseWorkTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0,
-       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: Colors.grey.shade200),
-      ),
+    return GestureDetector(
+      onTap: () {
+        if (item.type == CourseWorkType.quiz) {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => QuizScreen(quizTitle: item.title),
+            ),
+          );
+        }
+      },
+      child: Card(
+        elevation: 0,
+         shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+          side: BorderSide(color: Colors.grey.shade200),
+        ),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -77,6 +87,7 @@ class CourseWorkTile extends StatelessWidget {
           ],
         ),
       ),
+    ),
     );
   }
 

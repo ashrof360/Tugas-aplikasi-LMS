@@ -4,8 +4,6 @@ import '../../data/mock_data.dart';
 import '../../models/course.dart';
 import '../../theme/app_colors.dart';
 import '../../widgets/download_tile.dart';
-import '../../widgets/forum_thread_tile.dart';
-import '../../widgets/schedule_tile.dart';
 import '../../widgets/course_work_tile.dart';
 
 class CourseDetailScreen extends StatelessWidget {

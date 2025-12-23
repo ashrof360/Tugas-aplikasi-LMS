@@ -5,6 +5,7 @@ import '../models/forum_thread.dart';
 import '../models/material_item.dart';
 import '../models/schedule_item.dart';
 import '../models/course_work.dart';
+import '../models/quiz_question.dart';
 
 class MockData {
   static const String userName = 'DANDY CANDRA PRATAMA';
@@ -156,8 +157,44 @@ class MockData {
     CourseWork(
       title: 'Kuis – Assessment 2',
       deadline: 'Tenggat Waktu : 25 Februari 2021 23:59 WIB',
-      type: CourseWorkType.meeting,
+      type: CourseWorkType.quiz,
       status: CourseWorkStatus.completed,
+    ),
+  ];
+
+  static final quizQuestions = <QuizQuestion>[
+    QuizQuestion(
+      id: 1,
+      text: 'Radio button dapat digunakan untuk menentukan ?',
+      options: [
+        'A. Jenis Kelamin',
+         'B. Alamat',
+         'C. Hobby',
+         'D. Riwayat Pendidikan',
+         'E. Umur'
+      ],
+      correctOptionIndex: 0,
+    ),
+    QuizQuestion(
+      id: 2,
+      text: 'Manakah widget untuk membuat button tekan?',
+      options: ['A. Text', 'B. ElevatedButton', 'C. Column', 'D. Row', 'E. Scaffold'],
+      correctOptionIndex: 1,
+    ),
+    QuizQuestion(
+      id: 3,
+      text: 'Widget dasar untuk layout vertikal adalah?',
+      options: ['A. Row', 'B. Stack', 'C. Column', 'D. Container', 'E. Center'],
+      correctOptionIndex: 2,
+    ),
+    // Generating remaining questions placeholders to reach 15
+    ...[4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
+      (id) => QuizQuestion(
+        id: id,
+        text: 'Pertanyaan placeholder nomor $id',
+        options: ['A. Opsi 1', 'B. Opsi 2', 'C. Opsi 3', 'D. Opsi 4', 'E. Opsi 5'],
+        correctOptionIndex: 0,
+      ),
     ),
   ];
 }
