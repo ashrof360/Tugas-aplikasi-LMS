@@ -8,10 +8,12 @@ class CourseWork {
     required this.deadline,
     required this.type,
     required this.status,
+    this.description = '',
   });
 
   final String title;
   final String deadline;
   final CourseWorkType type;
   final CourseWorkStatus status;
+  final String description;
 }

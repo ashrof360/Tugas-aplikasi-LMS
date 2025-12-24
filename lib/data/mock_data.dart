@@ -147,18 +147,21 @@ class MockData {
       deadline: 'Tenggat Waktu : 25 Februari 2021 23:59 WIB',
       type: CourseWorkType.quiz,
       status: CourseWorkStatus.completed,
+      description: 'Kuis review untuk materi minggu pertama.',
     ),
     CourseWork(
       title: 'Tugas 01 – UID Android Mobile Game',
       deadline: 'Tenggat Waktu : 25 Februari 2021 23:59 WIB',
       type: CourseWorkType.assignment,
       status: CourseWorkStatus.check,
+      description: 'Implementasikan User Interface untuk game mobile Android berdasarkan wireframe yang telah diberikan.',
     ),
     CourseWork(
       title: 'Kuis – Assessment 2',
       deadline: 'Tenggat Waktu : 25 Februari 2021 23:59 WIB',
       type: CourseWorkType.quiz,
       status: CourseWorkStatus.completed,
+      description: 'Assessment 2 mencakup materi dari minggu 5 hingga 8.',
     ),
   ];
 

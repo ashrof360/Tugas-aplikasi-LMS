@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/course_work.dart';
 import '../screens/course/quiz_screen.dart';
+import '../screens/course/assignment_screen.dart';
 
 class CourseWorkTile extends StatelessWidget {
   const CourseWorkTile({super.key, required this.item});
@@ -16,6 +17,12 @@ class CourseWorkTile extends StatelessWidget {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => QuizScreen(quizTitle: item.title),
+            ),
+          );
+        } else if (item.type == CourseWorkType.assignment) {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => AssignmentScreen(item: item),
             ),
           );
         }
