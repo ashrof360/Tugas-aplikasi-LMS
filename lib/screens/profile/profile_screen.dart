@@ -62,8 +62,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                           const SizedBox(height: 16),
-                          const Text(
-                            'MOCH ASHROFUL MALIK',
+                          Text(
+                            MockData.userName,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,

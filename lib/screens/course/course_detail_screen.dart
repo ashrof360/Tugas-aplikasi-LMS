@@ -51,8 +51,13 @@ class CourseDetailScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Card(
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    side: BorderSide(color: Colors.black.withValues(alpha: 0.1)),
+                  ),
                   child: Padding(
-                    padding: const EdgeInsets.all(14),
+                    padding: const EdgeInsets.all(16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -60,11 +65,13 @@ class CourseDetailScreen extends StatelessWidget {
                           'Catatan',
                           style: TextStyle(fontWeight: FontWeight.w800),
                         ),
-                        const SizedBox(height: 6),
+                        const SizedBox(height: 8),
                         Text(
                           'Fitur offline ini masih berupa layout. Integrasi penyimpanan (misalnya path_provider) dan download manager bisa ditambahkan berikutnya.',
-                          style: Theme.of(context).textTheme.bodyMedium
-                              ?.copyWith(color: AppColors.muted),
+                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: AppColors.muted,
+                            fontSize: 13,
+                          ),
                         ),
                       ],
                     ),
