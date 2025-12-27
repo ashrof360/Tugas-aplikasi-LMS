@@ -81,24 +81,35 @@ class AssignmentScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey.shade300),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Row(
-                children: [
-                  const Icon(Icons.picture_as_pdf, color: Colors.red),
-                  const SizedBox(width: 12),
-                  const Expanded(
-                    child: Text(
-                      'Panduan_Tugas_01.pdf',
-                      style: TextStyle(fontSize: 14),
-                    ),
+            InkWell(
+              onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Mengunduh Panduan_Tugas_01.pdf...'),
+                    duration: Duration(seconds: 2),
                   ),
-                  Icon(Icons.download, color: Colors.grey.shade400),
-                ],
+                );
+              },
+              borderRadius: BorderRadius.circular(8),
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade300),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  children: [
+                    const Icon(Icons.picture_as_pdf, color: Colors.red),
+                    const SizedBox(width: 12),
+                    const Expanded(
+                      child: Text(
+                        'Panduan_Tugas_01.pdf',
+                        style: TextStyle(fontSize: 14),
+                      ),
+                    ),
+                    Icon(Icons.download, color: AppColors.primaryDark),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 40),
