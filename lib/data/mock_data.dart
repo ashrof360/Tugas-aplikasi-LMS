@@ -10,6 +10,7 @@ import '../models/quiz_question.dart';
 class MockData {
   static const String userName = 'MOCH. ASHROFUL MALIK';
   static const String userRole = 'MAHASISWA';
+  static const String userProfileImage = 'assets/images/profile_picture.jpg';
 
   static const upcomingAssignment = Assignment(
     courseName: 'DESAIN ANTARMUKA & PENGALAMAN PENGGUNA',

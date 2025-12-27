@@ -105,18 +105,10 @@ class _Header extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Container(
-                      width: 26,
-                      height: 26,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                      ),
-                      child: const Icon(
-                        Icons.person,
-                        size: 16,
-                        color: AppColors.primaryDark,
-                      ),
+                    CircleAvatar(
+                      radius: 13,
+                      backgroundColor: Colors.white,
+                      backgroundImage: AssetImage(MockData.userProfileImage),
                     ),
                   ],
                 ),
