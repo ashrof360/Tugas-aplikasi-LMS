@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../data/mock_data.dart';
 import '../../models/quiz_question.dart';
+import '../../theme/app_colors.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key, required this.quizTitle});
@@ -81,7 +82,7 @@ class _QuizScreenState extends State<QuizScreen> {
           Container(
             padding: const EdgeInsets.only(top: 40, bottom: 20, left: 16, right: 16),
             decoration: const BoxDecoration(
-              color: Color(0xFFC65252), // Reddish color from design
+              color: AppColors.primary,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(30),
                 bottomRight: Radius.circular(30),
@@ -140,7 +141,7 @@ class _QuizScreenState extends State<QuizScreen> {
                           child: Text(
                             '${q.id}',
                             style: TextStyle(
-                              color: isCurrent ? const Color(0xFFC65252) : Colors.white,
+                              color: isCurrent ? AppColors.primary : Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 12,
                             ),
@@ -190,7 +191,7 @@ class _QuizScreenState extends State<QuizScreen> {
                         margin: const EdgeInsets.only(bottom: 12),
                         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                         decoration: BoxDecoration(
-                          color: isSelected ? const Color(0xFFEF5350) : Colors.grey.shade100,
+                          color: isSelected ? AppColors.primary : Colors.grey.shade100,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text(
